@@ -25,19 +25,19 @@ namespace Initiative_Tracker
                 case MouseButtons.Right:
                     if (label.BackColor == Color.White)
                     {
-                        label.BackColor = Color.LightPink;
-                        label.ForeColor = Color.Black;
+                        label.BackColor = Color.Blue;
+                        label.ForeColor = Color.White;
                         label.Font = new Font(label.Font, FontStyle.Regular);
                         return;
                     }
-                    if (label.BackColor == Color.LightPink)
+                    if (label.BackColor == Color.Blue)
                     {
-                        label.BackColor = Color.LightGray;
+                        label.BackColor = Color.SandyBrown;
                         label.ForeColor = Color.Black;
                         label.Font = new Font(label.Font, FontStyle.Regular);
                         return;
                     }
-                    if (label.BackColor == Color.LightGray)
+                    if (label.BackColor == Color.SandyBrown)
                     {
                         label.BackColor = Color.Black;
                         label.ForeColor = Color.White;
@@ -82,6 +82,7 @@ namespace Initiative_Tracker
                     label.Size = new Size(52, 25);
                     label.BorderStyle = BorderStyle.FixedSingle;
                     label.AutoSize = true;
+                    label.Font = new Font("Arial", 12);
                     label.BringToFront();
                     label.MouseClick += label_Click;
                     Helper.ControlMover.Init(label);
@@ -106,7 +107,7 @@ namespace Initiative_Tracker
                     {
                         ((Label)c).BackColor = Color.Transparent;
                         ((Label)c).ForeColor = Color.Black;
-                        ((Label)c).Font = new Font(Font, FontStyle.Regular);
+                        ((Label)c).Font = new Font(Font, FontStyle.Regular);                       
                     }
                 }
             }
@@ -115,6 +116,63 @@ namespace Initiative_Tracker
         private void PanelInitiative_MouseClick(object sender, MouseEventArgs e)
         {
             AddNewEntity(sender, e);
+        }
+
+        private void PicOpen_MouseHover(object sender, EventArgs e)
+        {
+            label_info.BorderStyle = BorderStyle.FixedSingle;
+            label_info.Text = "Load a saved tracker";
+        }
+
+        private void icons_MouseLeave(object sender, EventArgs e)
+        {
+            label_info.BorderStyle = BorderStyle.None;
+            label_info.Text = "";
+        }
+
+        private void PicNew_MouseHover(object sender, EventArgs e)
+        {
+            label_info.BorderStyle = BorderStyle.FixedSingle;
+            label_info.Text = "Create new tracker";
+        }
+
+        private void PicSave_MouseHover(object sender, EventArgs e)
+        {
+            label_info.BorderStyle = BorderStyle.FixedSingle;
+            label_info.Text = "Save current tracker";
+        }
+
+        private void PictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            label_info.BorderStyle = BorderStyle.FixedSingle;
+            label_info.Text = "Reset all to waiting";
+        }
+
+        private void PicAbout_MouseHover(object sender, EventArgs e)
+        {
+            label_info.BorderStyle = BorderStyle.FixedSingle;
+            label_info.Text = "TTRP Initiative Tracker is free software.";
+        }
+
+        private void PicAbout_Click(object sender, EventArgs e)
+        {
+            string nl = Environment.NewLine + Environment.NewLine;
+            string msg = "TTRPG Initiative Tracker for Windows, v1.1" + nl;
+            msg += "Freeware. C# source code is available on GitHub." + Environment.NewLine;
+            msg += "Click the GitHub icon for the source code." + nl;
+            msg += "Use at your own risk.";
+            MessageBox.Show(msg);
+        }
+
+        private void GitHub_MouseHover(object sender, EventArgs e)
+        {
+            label_info.BorderStyle = BorderStyle.FixedSingle;
+            label_info.Text = "Click for the C# source code";
+        }
+
+        private void PicGitHub_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/davebowlin/Initiative-Tracker");
         }
     }
 }
