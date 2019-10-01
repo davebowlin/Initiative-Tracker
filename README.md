@@ -1,5 +1,7 @@
-# Initiative-Tracker
- RPG initiative tracker, C#
+# TTRPG Initiative Tracker
+ Written in Microsoft C#
+ 
+ For Windows-based computers
 
  ## Added features:
  - Ability to save, load tracker data
