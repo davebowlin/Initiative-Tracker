@@ -30,16 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.LABEL2 = new System.Windows.Forms.Label();
-            this.LABEL1 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.picGitHub = new System.Windows.Forms.PictureBox();
             this.picAbout = new System.Windows.Forms.PictureBox();
-            this.picReset = new System.Windows.Forms.PictureBox();
             this.picNew = new System.Windows.Forms.PictureBox();
             this.picLoad = new System.Windows.Forms.PictureBox();
             this.picSave = new System.Windows.Forms.PictureBox();
-            this.label_info = new System.Windows.Forms.Label();
             this.tableContainer = new System.Windows.Forms.TableLayoutPanel();
             this.panelAdd = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,40 +50,20 @@
             this.LABEL4 = new System.Windows.Forms.Label();
             this.LABEL3 = new System.Windows.Forms.Label();
             this.panelInitiative = new System.Windows.Forms.Panel();
+            this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LABEL2 = new System.Windows.Forms.Label();
+            this.label_info = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAbout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
             this.tableContainer.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // LABEL2
-            // 
-            this.LABEL2.AutoSize = true;
-            this.LABEL2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LABEL2.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL2.Location = new System.Drawing.Point(8, 47);
-            this.LABEL2.Name = "LABEL2";
-            this.LABEL2.Size = new System.Drawing.Size(112, 19);
-            this.LABEL2.TabIndex = 0;
-            this.LABEL2.Text = "Initiative Order";
-            this.LABEL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LABEL1
-            // 
-            this.LABEL1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LABEL1.AutoSize = true;
-            this.LABEL1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LABEL1.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL1.Location = new System.Drawing.Point(573, 44);
-            this.LABEL1.Name = "LABEL1";
-            this.LABEL1.Size = new System.Drawing.Size(131, 19);
-            this.LABEL1.TabIndex = 3;
-            this.LABEL1.Text = "Waiting / Unused";
-            this.LABEL1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // toolTip
             // 
@@ -126,34 +102,19 @@
             this.picAbout.MouseLeave += new System.EventHandler(this.icons_MouseLeave);
             this.picAbout.MouseHover += new System.EventHandler(this.PicAbout_MouseHover);
             // 
-            // picReset
-            // 
-            this.picReset.BackColor = System.Drawing.Color.Transparent;
-            this.picReset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picReset.Image = global::Initiative_Tracker.Properties.Resources.icon_reset2;
-            this.picReset.Location = new System.Drawing.Point(151, 9);
-            this.picReset.Name = "picReset";
-            this.picReset.Size = new System.Drawing.Size(30, 35);
-            this.picReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picReset.TabIndex = 29;
-            this.picReset.TabStop = false;
-            this.toolTip.SetToolTip(this.picReset, "Reset");
-            this.picReset.MouseLeave += new System.EventHandler(this.icons_MouseLeave);
-            this.picReset.MouseHover += new System.EventHandler(this.PictureBox1_MouseHover);
-            // 
             // picNew
             // 
             this.picNew.BackColor = System.Drawing.Color.Transparent;
             this.picNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picNew.Image = global::Initiative_Tracker.Properties.Resources.icon_new;
-            this.picNew.Location = new System.Drawing.Point(84, 9);
+            this.picNew.Location = new System.Drawing.Point(77, 0);
             this.picNew.Name = "picNew";
             this.picNew.Size = new System.Drawing.Size(30, 35);
             this.picNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picNew.TabIndex = 26;
+            this.picNew.TabIndex = 33;
             this.picNew.TabStop = false;
             this.toolTip.SetToolTip(this.picNew, "New");
+            this.picNew.Click += new System.EventHandler(this.PicNew_Click);
             this.picNew.MouseLeave += new System.EventHandler(this.icons_MouseLeave);
             this.picNew.MouseHover += new System.EventHandler(this.PicNew_MouseHover);
             // 
@@ -162,13 +123,14 @@
             this.picLoad.BackColor = System.Drawing.Color.Transparent;
             this.picLoad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picLoad.Image = global::Initiative_Tracker.Properties.Resources.icon_open;
-            this.picLoad.Location = new System.Drawing.Point(48, 9);
+            this.picLoad.Location = new System.Drawing.Point(41, 0);
             this.picLoad.Name = "picLoad";
             this.picLoad.Size = new System.Drawing.Size(30, 35);
             this.picLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLoad.TabIndex = 25;
+            this.picLoad.TabIndex = 32;
             this.picLoad.TabStop = false;
             this.toolTip.SetToolTip(this.picLoad, "Load");
+            this.picLoad.Click += new System.EventHandler(this.PicLoad_Click);
             this.picLoad.MouseLeave += new System.EventHandler(this.icons_MouseLeave);
             this.picLoad.MouseHover += new System.EventHandler(this.PicOpen_MouseHover);
             // 
@@ -177,28 +139,16 @@
             this.picSave.BackColor = System.Drawing.Color.Transparent;
             this.picSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picSave.Image = global::Initiative_Tracker.Properties.Resources.icon_save;
-            this.picSave.Location = new System.Drawing.Point(12, 9);
+            this.picSave.Location = new System.Drawing.Point(5, 0);
             this.picSave.Name = "picSave";
             this.picSave.Size = new System.Drawing.Size(30, 35);
             this.picSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSave.TabIndex = 24;
+            this.picSave.TabIndex = 31;
             this.picSave.TabStop = false;
             this.toolTip.SetToolTip(this.picSave, "Save");
-            this.picSave.MouseLeave += new System.EventHandler(this.icons_MouseLeave);
+            this.picSave.Click += new System.EventHandler(this.PicSave_Click);
+            this.picSave.MouseLeave += new System.EventHandler(this.ButtonReset_Click);
             this.picSave.MouseHover += new System.EventHandler(this.PicSave_MouseHover);
-            // 
-            // label_info
-            // 
-            this.label_info.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_info.BackColor = System.Drawing.Color.Transparent;
-            this.label_info.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_info.ForeColor = System.Drawing.Color.DarkRed;
-            this.label_info.Location = new System.Drawing.Point(198, 9);
-            this.label_info.Name = "label_info";
-            this.label_info.Size = new System.Drawing.Size(420, 35);
-            this.label_info.TabIndex = 27;
-            this.label_info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableContainer
             // 
@@ -383,6 +333,65 @@
             this.panelInitiative.TabIndex = 1;
             this.panelInitiative.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PanelInitiative_MouseClick);
             // 
+            // saveFile
+            // 
+            this.saveFile.DefaultExt = "trk";
+            this.saveFile.Filter = "Initiative Tracker | *.trk";
+            this.saveFile.InitialDirectory = "%USERPROFILE%\\Documents";
+            // 
+            // panelTop
+            // 
+            this.panelTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTop.Controls.Add(this.label1);
+            this.panelTop.Controls.Add(this.picNew);
+            this.panelTop.Controls.Add(this.picLoad);
+            this.panelTop.Controls.Add(this.picSave);
+            this.panelTop.Controls.Add(this.LABEL2);
+            this.panelTop.Controls.Add(this.label_info);
+            this.panelTop.Location = new System.Drawing.Point(12, 6);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(695, 63);
+            this.panelTop.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGray;
+            this.label1.Location = new System.Drawing.Point(575, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 16);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Unused / Waiting";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LABEL2
+            // 
+            this.LABEL2.AutoSize = true;
+            this.LABEL2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LABEL2.ForeColor = System.Drawing.Color.DarkGray;
+            this.LABEL2.Location = new System.Drawing.Point(3, 46);
+            this.LABEL2.Name = "LABEL2";
+            this.LABEL2.Size = new System.Drawing.Size(100, 16);
+            this.LABEL2.TabIndex = 30;
+            this.LABEL2.Text = "Initiative Order";
+            this.LABEL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_info
+            // 
+            this.label_info.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_info.BackColor = System.Drawing.Color.Transparent;
+            this.label_info.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info.ForeColor = System.Drawing.Color.DarkRed;
+            this.label_info.Location = new System.Drawing.Point(125, 0);
+            this.label_info.Name = "label_info";
+            this.label_info.Size = new System.Drawing.Size(565, 35);
+            this.label_info.TabIndex = 29;
+            this.label_info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -390,16 +399,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(716, 564);
+            this.Controls.Add(this.panelTop);
             this.Controls.Add(this.picGitHub);
             this.Controls.Add(this.picAbout);
-            this.Controls.Add(this.picReset);
             this.Controls.Add(this.tableContainer);
-            this.Controls.Add(this.label_info);
-            this.Controls.Add(this.picNew);
-            this.Controls.Add(this.picLoad);
-            this.Controls.Add(this.picSave);
-            this.Controls.Add(this.LABEL1);
-            this.Controls.Add(this.LABEL2);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -407,26 +410,20 @@
             this.Text = "TTRPG Initiative Tracker";
             ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAbout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).EndInit();
             this.tableContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label LABEL2;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.Label LABEL1;
-        private System.Windows.Forms.PictureBox picSave;
-        private System.Windows.Forms.PictureBox picLoad;
-        private System.Windows.Forms.PictureBox picNew;
-        private System.Windows.Forms.Label label_info;
         private System.Windows.Forms.TableLayoutPanel tableContainer;
         private System.Windows.Forms.Panel panelAdd;
         private System.Windows.Forms.Panel panel1;
@@ -440,10 +437,17 @@
         private System.Windows.Forms.Label LABEL4;
         private System.Windows.Forms.Label LABEL3;
         private System.Windows.Forms.Panel panelInitiative;
-        private System.Windows.Forms.PictureBox picReset;
         private System.Windows.Forms.PictureBox picAbout;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox picGitHub;
+        private System.Windows.Forms.SaveFileDialog saveFile;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picNew;
+        private System.Windows.Forms.PictureBox picLoad;
+        private System.Windows.Forms.PictureBox picSave;
+        private System.Windows.Forms.Label LABEL2;
+        private System.Windows.Forms.Label label_info;
     }
 }
 
