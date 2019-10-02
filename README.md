@@ -12,13 +12,11 @@
  - Reset button (to set all entries back to "waiting" mode)
  - Updated colors for easier viewing
  - GitHub link
+ - Save status of entries (save font and color of entries)
 
  ## Notes:
  - The default save/load tracker files is the current logged in user's Documents folder
- - Status (waiting, finished with turn, dead, etc) does not save. Workin' on it.
+
 
  ## TODO:
- - Save status of entries (save font and color of entries)
- 
-
- ## TODO LIST FEATURES DO NOT YET FUNCTION
+ - Don't know. I'm sure something will come up.

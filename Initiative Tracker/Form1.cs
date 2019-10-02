@@ -239,7 +239,7 @@ namespace Initiative_Tracker
         #endregion
 
 
-        #region Get All Label Text and Data To Export To File
+        #region Save Tracker
         private void GetTextData()
         {
             string txtToSave = string.Empty;
@@ -251,11 +251,37 @@ namespace Initiative_Tracker
 
                 if (c.GetType() == typeof(Label))
                 {
-                    Color bgcolor = c.BackColor;
-                    Color fgcolor = c.ForeColor;
+                    string bgcolor, fgcolor = string.Empty;
+
+                    if (c.ForeColor == Color.White)
+                    {
+                        fgcolor = "White";
+                    }
+                    else
+                    {
+                        fgcolor = "Black";
+                    }
+
+                    switch (c.BackColor.ToString())
+                    {
+                        case "Color [Black]":
+                            bgcolor = "Black";
+                            break;
+                        case "Color [SandyBrown]":
+                            bgcolor = "SandyBrown";
+                            break;
+                        case "Color [Blue]":
+                            bgcolor = "Blue";
+                            break;
+                        default:
+                            bgcolor = "White";
+                            break;
+                    }
 
                     bool strikeout = c.Font.Strikeout;
-                    data.Add(c.Text + divider + c.Location.X.ToString() + divider + c.Location.Y.ToString() + divider + bgcolor + divider + fgcolor + divider + strikeout);
+
+                    data.Add(c.Text + divider + c.Location.X.ToString() + divider + c.Location.Y.ToString() + divider 
+                        + bgcolor + divider + fgcolor + divider + strikeout);
                 }
             }
             try
@@ -289,13 +315,19 @@ namespace Initiative_Tracker
                         Label label = new Label
                         {
                             Location = new Point(Convert.ToInt32(sections[1]), (Convert.ToInt32(sections[2]))),
-                            Text = sections[0]
+                            Text = sections[0],
+                            BackColor = Color.FromName(sections[3]),
+                            ForeColor = Color.FromName(sections[4])
                         };
                         Controls.Add(label);
                         label.Size = new Size(52, 25);
                         label.BorderStyle = BorderStyle.FixedSingle;
                         label.AutoSize = true;
-                        label.Font = new Font("Arial", 12);
+                        //label.Font = new Font("Arial", 12);
+                        if (sections[5] == "True")
+                        {
+                            label.Font = new Font(label.Font, FontStyle.Strikeout);
+                        }
                         label.BringToFront();
                         label.MouseClick += label_Click;
                         Helper.ControlMover.Init(label);
