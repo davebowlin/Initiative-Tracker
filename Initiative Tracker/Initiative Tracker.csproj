@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <ApplicationIcon>icon_trans.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="InputBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="icon_trans.ico" />
     <None Include="icon_github.png" />
     <None Include="icon_reset2.png" />
     <None Include="icon_about.png" />
