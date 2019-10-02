@@ -42,3 +42,4 @@ D:\repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.cspr
 D:\repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.csproj.CopyComplete
 D:\repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.exe
 D:\repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.pdb
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative_Tracker.formAbout.resources

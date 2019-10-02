@@ -6,8 +6,8 @@
  * I wrote this for keeping initiative straight
  * while playing Dungeons and Dragons, works great.
  * 
- * Latest version:  1.5
- * Release date:  
+ * Latest version:  1.6
+ * Release date:  2 October 2019
  * 
  * License:  GNU Public License v2
  * 
@@ -19,7 +19,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using System.Reflection;
 
 namespace Initiative_Tracker
 {
@@ -191,19 +190,9 @@ namespace Initiative_Tracker
 
         private void PicAbout_Click(object sender, EventArgs e)
         {
-            var major = Assembly.GetExecutingAssembly().GetName().Version.Major;
-            var minor = Assembly.GetExecutingAssembly().GetName().Version.Minor;
-            string version = major.ToString() + "." + minor.ToString();
-
-
-            string nl = Environment.NewLine + Environment.NewLine;
-            string msg = "TTRPG Initiative Tracker for Windows" + Environment.NewLine;
-            msg += "Version " + version + nl;
-            msg += "Freeware. C# source code is available on GitHub." + Environment.NewLine;
-            msg += "Click the GitHub icon for the source code." + nl;
-            msg += "Use at your own risk." + nl;
-            msg += "davebowlin@gmail.com";
-            MessageBox.Show(msg);
+            formAbout form = new formAbout();
+            form.ShowDialog();
+            form.Dispose();
         }
 
         private void PicSave_Click(object sender, EventArgs e)
@@ -213,27 +202,32 @@ namespace Initiative_Tracker
         #endregion
 
 
-        #region New List
+        #region New Tracker
         private void PicNew_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Create new tracker?" + Environment.NewLine + "Current " +
                 "tracker will be cleared.", "New Tracker", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                // put the labels in a List to make sure they are all removed at the same time
-                List<Control> labels = new List<Control>();
-                foreach (Control c in this.Controls)
+                RemoveLabels();
+            }
+        }
+
+        private void RemoveLabels()
+        {
+            // put the labels in a List to make sure they are all removed at the same time
+            List<Control> labels = new List<Control>();
+            foreach (Control c in this.Controls)
+            {
+                if (c is Label)
                 {
-                    if (c is Label)
-                    {
-                        labels.Add(c);
-                    }
+                    labels.Add(c);
                 }
-                foreach (Control remove in labels)
-                {
-                    this.Controls.Remove(remove);
-                    remove.Dispose();
-                }
+            }
+            foreach (Control remove in labels)
+            {
+                this.Controls.Remove(remove);
+                remove.Dispose();
             }
         }
         #endregion
@@ -280,7 +274,7 @@ namespace Initiative_Tracker
 
                     bool strikeout = c.Font.Strikeout;
 
-                    data.Add(c.Text + divider + c.Location.X.ToString() + divider + c.Location.Y.ToString() + divider 
+                    data.Add(c.Text + divider + c.Location.X.ToString() + divider + c.Location.Y.ToString() + divider
                         + bgcolor + divider + fgcolor + divider + strikeout);
                 }
             }
@@ -300,42 +294,121 @@ namespace Initiative_Tracker
         #endregion
 
 
-        #region Load Data
+        #region Load Tracker
         private void PicLoad_Click(object sender, EventArgs e)
         {
-            if (openFile.ShowDialog() == DialogResult.OK)
+            int count = 0;
+
+            foreach (var c in Controls)
             {
-                string line = string.Empty;
-                StreamReader sr = new StreamReader(openFile.FileName);
-                while ((line = sr.ReadLine()) != null)
+                if (c is Label label)
                 {
-                    string[] sections = line.Split('¢');
-                    if (!string.IsNullOrWhiteSpace(line))
                     {
-                        Label label = new Label
-                        {
-                            Location = new Point(Convert.ToInt32(sections[1]), (Convert.ToInt32(sections[2]))),
-                            Text = sections[0],
-                            BackColor = Color.FromName(sections[3]),
-                            ForeColor = Color.FromName(sections[4])
-                        };
-                        Controls.Add(label);
-                        label.Size = new Size(52, 25);
-                        label.BorderStyle = BorderStyle.FixedSingle;
-                        label.AutoSize = true;
-                        //label.Font = new Font("Arial", 12);
-                        if (sections[5] == "True")
-                        {
-                            label.Font = new Font(label.Font, FontStyle.Strikeout);
-                        }
-                        label.BringToFront();
-                        label.MouseClick += label_Click;
-                        Helper.ControlMover.Init(label);
+                        count++;
                     }
                 }
-                sr.Close();
             }
-        } 
+
+            if (count > 0)
+            {
+                DialogResult dr = MessageBox.Show("Load a tracker?" + Environment.NewLine + "Current " +
+                        "tracker will be cleared.", "Load Tracker", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    RemoveLabels();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            try
+            {
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    string line = string.Empty;
+                    StreamReader sr = new StreamReader(openFile.FileName);
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] sections = line.Split('¢');
+                        if (!string.IsNullOrWhiteSpace(line))
+                        {
+                            Label label = new Label
+                            {
+                                Location = new Point(Convert.ToInt32(sections[1]), (Convert.ToInt32(sections[2]))),
+                                Text = sections[0],
+                                BackColor = Color.FromName(sections[3]),
+                                ForeColor = Color.FromName(sections[4])
+                            };
+                            Controls.Add(label);
+                            label.Size = new Size(52, 25);
+                            label.BorderStyle = BorderStyle.FixedSingle;
+                            label.AutoSize = true;
+                            //label.Font = new Font("Arial", 12);
+                            if (sections[5] == "True")
+                            {
+                                label.Font = new Font(label.Font, FontStyle.Strikeout);
+                            }
+                            label.BringToFront();
+                            label.MouseClick += label_Click;
+                            Helper.ControlMover.Init(label);
+                        }
+                    }
+                    sr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occurred and the tracker cannot be loaded." + Environment.NewLine
+                    + "Error: " + Environment.NewLine + ex.Message, "Error");
+            }
+        }
         #endregion
-    }
-}
+
+
+        #region Form Position Saving and Loading
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.RestoreWindowPosition();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.SaveWindowPosition();
+        }
+
+        private void RestoreWindowPosition()
+        {
+            if (Properties.Settings.Default.HasSetDefaults)
+            {
+                this.WindowState = Properties.Settings.Default.WindowState;
+                this.Location = Properties.Settings.Default.Location;
+                this.Size = Properties.Settings.Default.Size;
+            }
+        }
+
+        private void SaveWindowPosition()
+        {
+            Properties.Settings.Default.WindowState = this.WindowState;
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.Location = this.Location;
+                Properties.Settings.Default.Size = this.Size;
+            }
+            else
+            {
+                Properties.Settings.Default.Location = this.RestoreBounds.Location;
+                Properties.Settings.Default.Size = this.RestoreBounds.Size;
+            }
+
+            Properties.Settings.Default.HasSetDefaults = true;
+
+            Properties.Settings.Default.Save();
+        }
+        #endregion
+
+    }    
+} 
+
