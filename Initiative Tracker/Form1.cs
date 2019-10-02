@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Initiative_Tracker
@@ -99,11 +101,6 @@ namespace Initiative_Tracker
                 if (c is Label)
                 {
                     string n = ((Label)c).Name;
-                    if (n.Contains("LABEL"))
-                    {
-                        // skip these
-                    }
-                    else
                     {
                         ((Label)c).BackColor = Color.Transparent;
                         ((Label)c).ForeColor = Color.Black;
@@ -173,6 +170,56 @@ namespace Initiative_Tracker
         private void PicGitHub_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/davebowlin/Initiative-Tracker");
+        }
+
+        private void PicSave_Click(object sender, EventArgs e)
+        {
+            GetTextData();
+        }
+
+        private void PicNew_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void GetTextData()
+        {
+            int countTB = 0;
+            string txtToSave = string.Empty;
+
+            foreach (Control c in this.Controls)
+            {
+                string divider = "¢";
+                string nl = Environment.NewLine;
+
+                if (c.GetType() == typeof(Label))
+                {
+                    countTB++;
+                    Label label = (Label)Controls["label" + countTB];
+                    txtToSave += (c.Text +  divider + c.Location.X.ToString() + divider + Location.Y.ToString() + nl);
+                }
+            }
+
+            try
+            {
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    string txtHolder = string.Empty;                  
+                    File.WriteAllText(saveFile.FileName, txtToSave);
+                    MessageBox.Show(saveFile.FileName + " has been saved.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occured, the tracker was not saved." + Environment.NewLine + "Error: " + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            //MessageBox.Show(countTB.ToString());
+            //MessageBox.Show(txtToSave);
+        }
+
+        private void PicLoad_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -20,3 +20,14 @@ C:\Users\David Bowlin\Desktop\Initiative Tracker\Initiative Tracker\obj\Debug\In
 C:\Users\David Bowlin\Desktop\Initiative Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.csproj.CopyComplete
 C:\Users\David Bowlin\Desktop\Initiative Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.exe
 C:\Users\David Bowlin\Desktop\Initiative Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.pdb
+E:\Repos\Initiative-Tracker\Initiative Tracker\bin\Debug\Initiative Tracker.exe.config
+E:\Repos\Initiative-Tracker\Initiative Tracker\bin\Debug\Initiative Tracker.exe
+E:\Repos\Initiative-Tracker\Initiative Tracker\bin\Debug\Initiative Tracker.pdb
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.csprojAssemblyReference.cache
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative_Tracker.Form1.resources
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative_Tracker.Properties.Resources.resources
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.csproj.GenerateResource.cache
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.csproj.CoreCompileInputs.cache
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.csproj.CopyComplete
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.exe
+E:\Repos\Initiative-Tracker\Initiative Tracker\obj\Debug\Initiative Tracker.pdb
