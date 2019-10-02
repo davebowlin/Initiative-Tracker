@@ -6,8 +6,8 @@
  * I wrote this for keeping initiative straight
  * while playing Dungeons and Dragons, works great.
  * 
- * Latest version:  1.4
- * Release date:  2 October 2019
+ * Latest version:  1.5
+ * Release date:  
  * 
  * License:  GNU Public License v2
  * 
@@ -106,7 +106,9 @@ namespace Initiative_Tracker
                     label.Size = new Size(52, 25);
                     label.BorderStyle = BorderStyle.FixedSingle;
                     label.AutoSize = true;
-                    label.Font = new Font("Arial", 12);
+                    //label.Font = new Font("Arial", 12);
+                    label.BackColor = Color.White;
+                    label.ForeColor = Color.Black;
                     label.BringToFront();
                     label.MouseClick += label_Click;
                     Helper.ControlMover.Init(label);
@@ -240,7 +242,6 @@ namespace Initiative_Tracker
         #region Get All Label Text and Data To Export To File
         private void GetTextData()
         {
-            int countTB = 0;
             string txtToSave = string.Empty;
             List<string> data = new List<string>();
 
@@ -250,9 +251,11 @@ namespace Initiative_Tracker
 
                 if (c.GetType() == typeof(Label))
                 {
-                    countTB++;
-                    Label label = (Label)Controls["label" + countTB];
-                    data.Add(c.Text + divider + c.Location.X.ToString() + divider + c.Location.Y.ToString());
+                    Color bgcolor = c.BackColor;
+                    Color fgcolor = c.ForeColor;
+
+                    bool strikeout = c.Font.Strikeout;
+                    data.Add(c.Text + divider + c.Location.X.ToString() + divider + c.Location.Y.ToString() + divider + bgcolor + divider + fgcolor + divider + strikeout);
                 }
             }
             try
