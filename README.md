@@ -1,5 +1,5 @@
 # TTRPG Initiative Tracker
-### Version 1.4
+### Version 1.5
 
  Written in Microsoft C#
  
