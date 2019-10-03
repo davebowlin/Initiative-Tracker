@@ -24,6 +24,7 @@ namespace Initiative_Tracker
 {
     public partial class Form1 : Form
     {
+        bool state = false; // handles the info label's colors and state
 
         public Form1()
         {
@@ -141,46 +142,69 @@ namespace Initiative_Tracker
 
 
         #region Mouse-Overs and Button Clicks
+        private void SetInfoLabel()
+        {
+            if (state)
+            {
+                label_info.BackColor = Color.DarkRed;
+                label_info.ForeColor = Color.White;
+                label_info.BorderStyle = BorderStyle.FixedSingle;
+            }
+            else
+            {
+                label_info.BackColor = Color.Transparent;
+                label_info.ForeColor = Color.DarkRed;
+                label_info.BorderStyle = BorderStyle.None;
+                label_info.Text = "";
+            }
+        }
+
         private void PicOpen_MouseHover(object sender, EventArgs e)
         {
-            label_info.BorderStyle = BorderStyle.FixedSingle;
+            state = true;
+            SetInfoLabel();
             label_info.Text = "Load a saved tracker";
         }
 
         private void icons_MouseLeave(object sender, EventArgs e)
         {
-            label_info.BorderStyle = BorderStyle.None;
-            label_info.Text = "";
+            state = false;
+            SetInfoLabel();
         }
 
         private void PicNew_MouseHover(object sender, EventArgs e)
         {
-            label_info.BorderStyle = BorderStyle.FixedSingle;
+            state = true;
+            SetInfoLabel();
             label_info.Text = "Create new tracker";
         }
 
         private void PicSave_MouseHover(object sender, EventArgs e)
         {
-            label_info.BorderStyle = BorderStyle.FixedSingle;
+            state = true;
+            SetInfoLabel();
             label_info.Text = "Save current tracker";
         }
 
         private void PictureBox1_MouseHover(object sender, EventArgs e)
         {
-            label_info.BorderStyle = BorderStyle.FixedSingle;
-            label_info.Text = "Reset all to waiting";
+            state = true;
+            SetInfoLabel();
+            label_info.Text = "Reset all tags to waiting/ready";
         }
 
         private void PicAbout_MouseHover(object sender, EventArgs e)
         {
-            label_info.BorderStyle = BorderStyle.FixedSingle;
-            label_info.Text = "TTRP Initiative Tracker is free software.";
+            state = true;
+            SetInfoLabel();
+            label_info.Text = "Click the ? icon for more information";
         }
 
         private void GitHub_MouseHover(object sender, EventArgs e)
         {
-            label_info.BorderStyle = BorderStyle.FixedSingle;
-            label_info.Text = "Click for the C# source code";
+            state = true;
+            SetInfoLabel();
+            label_info.Text = "Visit GitHub for the source code repository";
         }
 
         private void PicGitHub_Click(object sender, EventArgs e)

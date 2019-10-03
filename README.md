@@ -1,6 +1,6 @@
 # TTRPG Initiative Tracker
 
-### Version 1.6
+### Version 1.6.1
 
  Written in Microsoft C#
  
@@ -16,11 +16,11 @@
  ## Notes:
  - The default save/load tracker files is the current logged in user's Documents folder
  - Added "About" page
- - Fixed some formatting
+ - Fixed some formatting issues
  - Updated the colors for easier viewing
  - Added GitHub link to the repository
- - Fixed some minor bugs
  - Form's size and position are now saved/loaded automatically
+ - Fixed some minor bugs and annoyances.
 
 
  ## TODO:
