@@ -35,6 +35,7 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.picGitHub = new System.Windows.Forms.PictureBox();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.labelContact = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
@@ -121,13 +122,31 @@
             this.picLogo.MouseLeave += new System.EventHandler(this.PicLogo_MouseLeave);
             this.picLogo.MouseHover += new System.EventHandler(this.PicLogo_MouseHover);
             // 
+            // labelContact
+            // 
+            this.labelContact.BackColor = System.Drawing.Color.Transparent;
+            this.labelContact.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContact.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelContact.Location = new System.Drawing.Point(450, 251);
+            this.labelContact.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelContact.Name = "labelContact";
+            this.labelContact.Size = new System.Drawing.Size(103, 20);
+            this.labelContact.TabIndex = 7;
+            this.labelContact.Text = "Contact Me";
+            this.labelContact.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelContact.Click += new System.EventHandler(this.LabelContact_Click);
+            this.labelContact.MouseLeave += new System.EventHandler(this.LabelContact_MouseLeave);
+            this.labelContact.MouseHover += new System.EventHandler(this.LabelContact_MouseHover);
+            // 
             // formAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ClientSize = new System.Drawing.Size(665, 363);
+            this.ClientSize = new System.Drawing.Size(661, 359);
             this.ControlBox = false;
+            this.Controls.Add(this.labelContact);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.picGitHub);
             this.Controls.Add(this.label3);
@@ -137,7 +156,7 @@
             this.Controls.Add(this.picLogo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formAbout";
@@ -160,5 +179,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox picGitHub;
         private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Label labelContact;
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -37,6 +39,23 @@ namespace Initiative_Tracker
         private void PicLogo_MouseLeave(object sender, EventArgs e)
         {
             picLogo.Image = Properties.Resources.icon;
+        }
+
+        private void LabelContact_Click(object sender, EventArgs e)
+        {
+            Process.Start("mailto:davebowlin@gmail.com");
+        }
+
+        private void LabelContact_MouseHover(object sender, EventArgs e)
+        {
+            labelContact.ForeColor = Color.White;
+            labelContact.BackColor = Color.Black;
+        }
+
+        private void LabelContact_MouseLeave(object sender, EventArgs e)
+        {
+            labelContact.ForeColor = Color.DarkRed;
+            labelContact.BackColor = Color.Transparent;
         }
     }
 }
