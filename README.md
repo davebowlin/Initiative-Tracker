@@ -1,5 +1,6 @@
 # TTRPG Initiative Tracker
-### Version 1.5
+
+### Version 1.6
 
  Written in Microsoft C#
  
@@ -10,12 +11,16 @@
  - Load tracker list from file
  - Create unlimited number of trackers
  - Reset button (to set all entries back to "waiting" mode)
- - Updated colors for easier viewing
- - GitHub link
  - Save status of entries (save font and color of entries)
 
  ## Notes:
  - The default save/load tracker files is the current logged in user's Documents folder
+ - Added "About" page
+ - Fixed some formatting
+ - Updated the colors for easier viewing
+ - Added GitHub link to the repository
+ - Fixed some minor bugs
+ - Form's size and position are now saved/loaded automatically
 
 
  ## TODO:

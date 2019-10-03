@@ -74,6 +74,7 @@
             // 
             // picGitHub
             // 
+            this.picGitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picGitHub.BackColor = System.Drawing.Color.Transparent;
             this.picGitHub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picGitHub.Image = global::Initiative_Tracker.Properties.Resources.icon_github;
@@ -93,7 +94,7 @@
             this.picAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picAbout.BackColor = System.Drawing.Color.Transparent;
             this.picAbout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picAbout.Image = global::Initiative_Tracker.Properties.Resources.icon_about;
+            this.picAbout.Image = global::Initiative_Tracker.Properties.Resources.icon_help;
             this.picAbout.Location = new System.Drawing.Point(661, 3);
             this.picAbout.Name = "picAbout";
             this.picAbout.Size = new System.Drawing.Size(30, 35);
@@ -193,7 +194,7 @@
             // panelAdd
             // 
             this.panelAdd.AllowDrop = true;
-            this.panelAdd.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelAdd.BackColor = System.Drawing.Color.DarkGray;
             this.panelAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAdd.Location = new System.Drawing.Point(432, 5);
@@ -226,18 +227,18 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DarkGray;
-            this.label13.Location = new System.Drawing.Point(0, 450);
+            this.label13.Location = new System.Drawing.Point(0, 440);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(153, 25);
             this.label13.TabIndex = 25;
-            this.label13.Text = "This software is free.";
+            this.label13.Text = "davebowlin@gmail.com";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DarkGray;
-            this.label10.Location = new System.Drawing.Point(-6, 0);
+            this.label10.Location = new System.Drawing.Point(-7, 69);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(162, 19);
             this.label10.TabIndex = 7;
@@ -249,19 +250,19 @@
             this.LABEL11.AutoSize = true;
             this.LABEL11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LABEL11.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL11.Location = new System.Drawing.Point(41, 270);
+            this.LABEL11.Location = new System.Drawing.Point(32, 226);
             this.LABEL11.Name = "LABEL11";
             this.LABEL11.Size = new System.Drawing.Size(111, 30);
             this.LABEL11.TabIndex = 22;
             this.LABEL11.Text = "Strikeout: Dead /\r\n                  Disabled";
-            this.LABEL11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LABEL11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LABEL9
             // 
             this.LABEL9.AutoSize = true;
             this.LABEL9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LABEL9.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL9.Location = new System.Drawing.Point(9, 320);
+            this.LABEL9.Location = new System.Drawing.Point(10, 307);
             this.LABEL9.Name = "LABEL9";
             this.LABEL9.Size = new System.Drawing.Size(133, 15);
             this.LABEL9.TabIndex = 21;
@@ -273,43 +274,43 @@
             this.LABEL8.AutoSize = true;
             this.LABEL8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LABEL8.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL8.Location = new System.Drawing.Point(45, 255);
+            this.LABEL8.Location = new System.Drawing.Point(32, 211);
             this.LABEL8.Name = "LABEL8";
             this.LABEL8.Size = new System.Drawing.Size(87, 15);
             this.LABEL8.TabIndex = 20;
             this.LABEL8.Text = "Tan: Complete";
-            this.LABEL8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LABEL8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LABEL7
             // 
             this.LABEL7.AutoSize = true;
             this.LABEL7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LABEL7.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL7.Location = new System.Drawing.Point(45, 240);
+            this.LABEL7.Location = new System.Drawing.Point(32, 196);
             this.LABEL7.Name = "LABEL7";
             this.LABEL7.Size = new System.Drawing.Size(68, 15);
             this.LABEL7.TabIndex = 19;
             this.LABEL7.Text = "Blue: Active";
-            this.LABEL7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LABEL7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LABEL6
             // 
             this.LABEL6.AutoSize = true;
             this.LABEL6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LABEL6.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL6.Location = new System.Drawing.Point(45, 225);
+            this.LABEL6.Location = new System.Drawing.Point(32, 181);
             this.LABEL6.Name = "LABEL6";
             this.LABEL6.Size = new System.Drawing.Size(85, 15);
             this.LABEL6.TabIndex = 18;
             this.LABEL6.Text = "White: Waiting";
-            this.LABEL6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LABEL6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LABEL5
             // 
             this.LABEL5.AutoSize = true;
             this.LABEL5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LABEL5.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL5.Location = new System.Drawing.Point(9, 199);
+            this.LABEL5.Location = new System.Drawing.Point(9, 166);
             this.LABEL5.Name = "LABEL5";
             this.LABEL5.Size = new System.Drawing.Size(70, 15);
             this.LABEL5.TabIndex = 17;
@@ -321,7 +322,7 @@
             this.LABEL4.AutoSize = true;
             this.LABEL4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LABEL4.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL4.Location = new System.Drawing.Point(9, 159);
+            this.LABEL4.Location = new System.Drawing.Point(9, 115);
             this.LABEL4.Name = "LABEL4";
             this.LABEL4.Size = new System.Drawing.Size(116, 15);
             this.LABEL4.TabIndex = 16;
@@ -330,12 +331,11 @@
             // 
             // LABEL3
             // 
-            this.LABEL3.AutoSize = true;
             this.LABEL3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LABEL3.ForeColor = System.Drawing.Color.DarkGray;
-            this.LABEL3.Location = new System.Drawing.Point(31, 117);
+            this.LABEL3.ForeColor = System.Drawing.Color.Gray;
+            this.LABEL3.Location = new System.Drawing.Point(1, 25);
             this.LABEL3.Name = "LABEL3";
-            this.LABEL3.Size = new System.Drawing.Size(94, 19);
+            this.LABEL3.Size = new System.Drawing.Size(152, 19);
             this.LABEL3.TabIndex = 15;
             this.LABEL3.Text = "Instructions:";
             this.LABEL3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -343,7 +343,7 @@
             // panelInitiative
             // 
             this.panelInitiative.AllowDrop = true;
-            this.panelInitiative.BackColor = System.Drawing.Color.PaleGreen;
+            this.panelInitiative.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panelInitiative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelInitiative.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInitiative.Location = new System.Drawing.Point(5, 5);
@@ -435,7 +435,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TTRPG Initiative Tracker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAbout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReset)).EndInit();
