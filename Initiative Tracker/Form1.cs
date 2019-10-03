@@ -6,8 +6,8 @@
  * I wrote this for keeping initiative straight
  * while playing Dungeons and Dragons, works great.
  * 
- * Latest version:  1.6
- * Release date:  2 October 2019
+ * Latest version:  1.7
+ * Release date:  3 October 2019
  * 
  * License:  GNU Public License v2
  * 
@@ -24,8 +24,6 @@ namespace Initiative_Tracker
 {
     public partial class Form1 : Form
     {
-        bool state = false; // handles the info label's colors and state
-
         public Form1()
         {
             InitializeComponent();
@@ -141,72 +139,7 @@ namespace Initiative_Tracker
         #endregion
 
 
-        #region Mouse-Overs and Button Clicks
-        private void SetInfoLabel()
-        {
-            if (state)
-            {
-                label_info.BackColor = Color.DarkRed;
-                label_info.ForeColor = Color.White;
-                label_info.BorderStyle = BorderStyle.FixedSingle;
-            }
-            else
-            {
-                label_info.BackColor = Color.Transparent;
-                label_info.ForeColor = Color.DarkRed;
-                label_info.BorderStyle = BorderStyle.None;
-                label_info.Text = "";
-            }
-        }
-
-        private void PicOpen_MouseHover(object sender, EventArgs e)
-        {
-            state = true;
-            SetInfoLabel();
-            label_info.Text = "Load a saved tracker";
-        }
-
-        private void icons_MouseLeave(object sender, EventArgs e)
-        {
-            state = false;
-            SetInfoLabel();
-        }
-
-        private void PicNew_MouseHover(object sender, EventArgs e)
-        {
-            state = true;
-            SetInfoLabel();
-            label_info.Text = "Create new tracker";
-        }
-
-        private void PicSave_MouseHover(object sender, EventArgs e)
-        {
-            state = true;
-            SetInfoLabel();
-            label_info.Text = "Save current tracker";
-        }
-
-        private void PictureBox1_MouseHover(object sender, EventArgs e)
-        {
-            state = true;
-            SetInfoLabel();
-            label_info.Text = "Reset all tags to waiting/ready";
-        }
-
-        private void PicAbout_MouseHover(object sender, EventArgs e)
-        {
-            state = true;
-            SetInfoLabel();
-            label_info.Text = "Click the ? icon for more information";
-        }
-
-        private void GitHub_MouseHover(object sender, EventArgs e)
-        {
-            state = true;
-            SetInfoLabel();
-            label_info.Text = "Visit GitHub for the source code repository";
-        }
-
+        #region Menu and Toolbar Button Clicks
         private void PicGitHub_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/davebowlin/Initiative-Tracker");
@@ -229,15 +162,35 @@ namespace Initiative_Tracker
         #region New Tracker
         private void PicNew_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Create new tracker?" + Environment.NewLine + "Current " +
-                "tracker will be cleared.", "New Tracker", MessageBoxButtons.YesNo);
-            if (dr == DialogResult.Yes)
+            int count = 0;
+
+            foreach (var c in Controls)
             {
-                RemoveLabels();
+                if (c is Label label)
+                {
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            if (count > 0)
+            {
+                DialogResult dr = MessageBox.Show("Create a new tracker?" + Environment.NewLine + Environment.NewLine + "The current " +
+                        "tracker will be destroyed," + Environment.NewLine + "so save it first if you want to" +
+                        " keep it.", "New Tracker", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    RemoveLabels();
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
-        private void RemoveLabels()
+            private void RemoveLabels()
         {
             // put the labels in a List to make sure they are all removed at the same time
             List<Control> labels = new List<Control>();
@@ -335,8 +288,9 @@ namespace Initiative_Tracker
 
             if (count > 0)
             {
-                DialogResult dr = MessageBox.Show("Load a tracker?" + Environment.NewLine + "Current " +
-                        "tracker will be cleared.", "Load Tracker", MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show("Load a tracker?" + Environment.NewLine + Environment.NewLine + "The current " +
+                        "tracker will be destroyed," + Environment.NewLine + "so save it first if you want to" +
+                        " keep it.", "Load Tracker", MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
                     RemoveLabels();
