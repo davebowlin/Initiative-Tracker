@@ -98,19 +98,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icon.ico" />
     <Content Include="icon_trans.ico" />
     <None Include="Resources\icon_help.png" />
     <None Include="Resources\me.jpg" />
     <None Include="Resources\icon.png" />
     <None Include="icon_github.png" />
-    <None Include="icon_reset2.png" />
-    <None Include="icon_about.png" />
-    <None Include="icon_reset1.png" />
-    <None Include="icon_reset.png" />
-    <None Include="icon_open.png" />
-    <None Include="icon_save.png" />
-    <None Include="icon_new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

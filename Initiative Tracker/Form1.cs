@@ -1,16 +1,16 @@
 ﻿/* TTRPG Initiatve Tracker
- * 
+ *
  * A simple, easy to use initiative tracker for
  * pretty much any table-top role playing game.
- * 
+ *
  * I wrote this for keeping initiative straight
  * while playing Dungeons and Dragons, works great.
- * 
+ *
  * Latest version:  1.7
  * Release date:  3 October 2019
- * 
+ *
  * License:  GNU Public License v2
- * 
+ *
  * Contact:  davebowlin@gmail.com
 */
 
@@ -30,6 +30,7 @@ namespace Initiative_Tracker
         }
 
         #region Label Clicks
+
         private void label_Click(object sender, MouseEventArgs e)
         {
             Label label = sender as Label;
@@ -38,8 +39,10 @@ namespace Initiative_Tracker
             {
                 case MouseButtons.Left:
                     break;
+
                 case MouseButtons.None:
                     break;
+
                 case MouseButtons.Right:
                     if (label.BackColor == Color.White)
                     {
@@ -70,22 +73,24 @@ namespace Initiative_Tracker
                         return;
                     }
                     break;
+
                 case MouseButtons.Middle:
                     this.Controls.Remove((Label)sender);
                     break;
+
                 default:
                     break;
             }
         }
-        #endregion
 
+        #endregion Label Clicks
 
         #region Add New Entity
+
         private void PanelAdd_MouseClick(object sender, MouseEventArgs e)
         {
             AddNewEntity(sender, e);
         }
-
 
         private void AddNewEntity(object sender, MouseEventArgs e)
         {
@@ -118,10 +123,11 @@ namespace Initiative_Tracker
         {
             AddNewEntity(sender, e);
         }
-        #endregion
 
+        #endregion Add New Entity
 
         #region Reset Labels
+
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             foreach (var c in Controls)
@@ -136,10 +142,11 @@ namespace Initiative_Tracker
                 }
             }
         }
-        #endregion
 
+        #endregion Reset Labels
 
         #region Menu and Toolbar Button Clicks
+
         private void PicGitHub_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/davebowlin/Initiative-Tracker");
@@ -156,10 +163,11 @@ namespace Initiative_Tracker
         {
             GetTextData();
         }
-        #endregion
 
+        #endregion Menu and Toolbar Button Clicks
 
         #region New Tracker
+
         private void PicNew_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -190,7 +198,7 @@ namespace Initiative_Tracker
             }
         }
 
-            private void RemoveLabels()
+        private void RemoveLabels()
         {
             // put the labels in a List to make sure they are all removed at the same time
             List<Control> labels = new List<Control>();
@@ -207,10 +215,11 @@ namespace Initiative_Tracker
                 remove.Dispose();
             }
         }
-        #endregion
 
+        #endregion New Tracker
 
         #region Save Tracker
+
         private void GetTextData()
         {
             string txtToSave = string.Empty;
@@ -238,12 +247,15 @@ namespace Initiative_Tracker
                         case "Color [Black]":
                             bgcolor = "Black";
                             break;
+
                         case "Color [SandyBrown]":
                             bgcolor = "SandyBrown";
                             break;
+
                         case "Color [Blue]":
                             bgcolor = "Blue";
                             break;
+
                         default:
                             bgcolor = "White";
                             break;
@@ -268,10 +280,11 @@ namespace Initiative_Tracker
                     + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        #endregion
 
+        #endregion Save Tracker
 
         #region Load Tracker
+
         private void PicLoad_Click(object sender, EventArgs e)
         {
             int count = 0;
@@ -342,10 +355,11 @@ namespace Initiative_Tracker
                     + "Error: " + Environment.NewLine + ex.Message, "Error");
             }
         }
-        #endregion
 
+        #endregion Load Tracker
 
         #region Form Position Saving and Loading
+
         private void Form1_Load(object sender, EventArgs e)
         {
             this.RestoreWindowPosition();
@@ -385,8 +399,7 @@ namespace Initiative_Tracker
 
             Properties.Settings.Default.Save();
         }
-        #endregion
 
-    }    
-} 
-
+        #endregion Form Position Saving and Loading
+    }
+}
