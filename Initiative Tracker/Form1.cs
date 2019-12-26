@@ -6,8 +6,8 @@
  * I wrote this for keeping initiative straight
  * while playing Dungeons and Dragons, works great.
  *
- * Latest version:  1.7
- * Release date:  3 October 2019
+ * Latest version:  1.9
+ * Release date:  26 December 2019
  *
  * License:  GNU Public License v2
  *
@@ -225,6 +225,11 @@ namespace Initiative_Tracker
             string txtToSave = string.Empty;
             List<string> data = new List<string>();
 
+            string formData = "FORMDATA¢" + this.Size.Width.ToString() + "¢" + this.Size.Height.ToString() + "¢"
+                + this.Location.X.ToString() + "¢" + this.Location.Y.ToString();
+
+            data.Add(formData);
+
             foreach (Control c in this.Controls)
             {
                 string divider = "¢";
@@ -325,25 +330,40 @@ namespace Initiative_Tracker
                         string[] sections = line.Split('¢');
                         if (!string.IsNullOrWhiteSpace(line))
                         {
-                            Label label = new Label
+                            if (sections[0] == "FORMDATA")
                             {
-                                Location = new Point(Convert.ToInt32(sections[1]), (Convert.ToInt32(sections[2]))),
-                                Text = sections[0],
-                                BackColor = Color.FromName(sections[3]),
-                                ForeColor = Color.FromName(sections[4])
-                            };
-                            Controls.Add(label);
-                            label.Size = new Size(52, 25);
-                            label.BorderStyle = BorderStyle.FixedSingle;
-                            label.AutoSize = true;
-                            //label.Font = new Font("Arial", 12);
-                            if (sections[5] == "True")
-                            {
-                                label.Font = new Font(label.Font, FontStyle.Strikeout);
+                                // code to process the form data from the loaded file
+                                int sizex = Convert.ToInt32(sections[1]);
+                                int sizey = Convert.ToInt32(sections[2]);
+                                int locx = Convert.ToInt32(sections[3]);
+                                int locy = Convert.ToInt32(sections[4]);
+
+                                this.Width = sizex;
+                                this.Height = sizey;
+                                this.Location = new Point(locx, locy);
                             }
-                            label.BringToFront();
-                            label.MouseClick += label_Click;
-                            Helper.ControlMover.Init(label);
+                            else
+                            {
+                                Label label = new Label
+                                {
+                                    Location = new Point(Convert.ToInt32(sections[1]), (Convert.ToInt32(sections[2]))),
+                                    Text = sections[0],
+                                    BackColor = Color.FromName(sections[3]),
+                                    ForeColor = Color.FromName(sections[4])
+                                };
+                                Controls.Add(label);
+                                label.Size = new Size(52, 25);
+                                label.BorderStyle = BorderStyle.FixedSingle;
+                                label.AutoSize = true;
+                                //label.Font = new Font("Arial", 12);
+                                if (sections[5] == "True")
+                                {
+                                    label.Font = new Font(label.Font, FontStyle.Strikeout);
+                                }
+                                label.BringToFront();
+                                label.MouseClick += label_Click;
+                                Helper.ControlMover.Init(label);
+                            }
                         }
                     }
                     sr.Close();
